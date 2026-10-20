@@ -22,16 +22,19 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.data.model.AppLanguage
 import com.example.data.model.HourlyForecast
 import com.example.data.model.TemperatureUnit
 import com.example.data.model.WeatherCondition
 import com.example.ui.theme.*
+import com.example.util.WeatherLocalization
 
 @Composable
 fun HourlyTemperatureCurveCard(
     headlineSummary: String,
     hourly: List<HourlyForecast>,
     tempUnit: TemperatureUnit,
+    language: AppLanguage = AppLanguage.ENGLISH,
     modifier: Modifier = Modifier
 ) {
     Card(
@@ -124,7 +127,7 @@ fun HourlyTemperatureCurveCard(
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
-                                text = if (item.isSunset) "Sunset" else tempUnit.formatValue(item.temperature),
+                                text = if (item.isSunset) WeatherLocalization.getSunsetLabel(language) else tempUnit.formatValue(item.temperature),
                                 fontSize = if (item.isSunset) 11.sp else 14.sp,
                                 fontWeight = if (item.isSunset) FontWeight.Medium else FontWeight.SemiBold,
                                 color = if (item.isSunset) SunsetOrange else TextWhitePrimary

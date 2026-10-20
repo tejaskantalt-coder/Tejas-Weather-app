@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Tejas Weather app</string>
+    <string name="home_label">ホーム</string>
+    <string name="search_cities_hint">都市を検索…</string>
+    <string name="search_title">都市と地域を検索</string>
+    <string name="search_placeholder">都市、地域、国を入力…</string>
+    <string name="search_using_current_location">現在地を使用</string>
+    <string name="search_gps_description">現在地の最新天気を即座に取得</string>
+    <string name="favorite_places">お気に入りの場所</string>
+    <string name="popular_cities">世界の人気都市</string>
+    <string name="no_results_found">\"%1$s\" に一致する場所は見つかりませんでした</string>
+    <string name="feels_like">体感</string>
+    <string name="hourly_forecast">1時間ごとの予報</string>
+    <string name="precipitation_chart_title">降水量</string>
+    <string name="sunset">日没</string>
+    <string name="sunrise">日の出</string>
+    <string name="now">現在</string>
+    <string name="today">今日</string>
+    <string name="tomorrow">明日</string>
+    <string name="ten_day_forecast">10日間の天気予報</string>
+    <string name="wind">風速</string>
+    <string name="humidity">湿度</string>
+    <string name="uv_index">UVインデックス</string>
+    <string name="pressure">気圧</string>
+    <string name="visibility">視程</string>
+    <string name="sun_times">日の出と日没</string>
+    <string name="languages">言語設定</string>
+    <string name="select_language">言語を選択</string>
+
+    <string name="condition_sunny">快晴</string>
+    <string name="condition_clear">晴れ</string>
+    <string name="condition_partly_cloudy">晴れ時々曇り</string>
+    <string name="condition_cloudy">曇り</string>
+    <string name="condition_light_rain">小雨</string>
+    <string name="condition_rain">雨</string>
+    <string name="condition_thunderstorm">雷雨</string>
+    <string name="condition_snow">雪</string>
+    <string name="condition_fog">霧</string>
+
+    <!-- AccuWeather Weather Map Resources -->
+    <string name="accuweather_map_title">AccuWeather 気象レーダーマップ</string>
+    <string name="accuweather_layer_radar">レーダーと降雨</string>
+    <string name="accuweather_layer_clouds">雲と衛星画像</string>
+    <string name="accuweather_layer_temp">気温</string>
+    <string name="accuweather_layer_wind">風の流れ</string>
+    <string name="accuweather_layer_severe">警報級の嵐</string>
+    <string name="accuweather_fullscreen">インタラクティブ気象マップ</string>
+    <string name="accuweather_now">リアルタイム</string>
+    <string name="accuweather_recenter">現在地に戻す</string>
+    <string name="accuweather_legend_intensity">降雨強度</string>
+    <string name="accuweather_branding">AccuWeather Superior Accuracy™</string>
+</resources>

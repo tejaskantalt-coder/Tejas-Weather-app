@@ -1,6 +1,6 @@
 {
   "name": "Tejas Weather app",
-  "description": "A lightweight modern weather app with real-time atmospheric forecasts, hourly temperature curve, precipitation bar charts, AccuWeather radar maps, and smooth animated weather elements optimized for 60fps performance.",
+  "description": "A modern weather app with multilingual Gemini AI atmospheric overviews, real-time forecasts, hourly temperature curve, precipitation charts, and AccuWeather radar maps.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

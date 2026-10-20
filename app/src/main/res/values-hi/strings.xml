@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Tejas Weather app</string>
+    <string name="home_label">होम</string>
+    <string name="search_cities_hint">शहर खोजें…</string>
+    <string name="search_title">शहर और स्थान खोजें</string>
+    <string name="search_placeholder">शहर, राज्य या देश दर्ज करें…</string>
+    <string name="search_using_current_location">वर्तमान स्थान का उपयोग करें</string>
+    <string name="search_gps_description">अभी आप जहाँ हैं वहाँ का तुरंत मौसम प्राप्त करें</string>
+    <string name="favorite_places">पसंदीदा स्थान</string>
+    <string name="popular_cities">दुनिया भर के लोकप्रिय शहर</string>
+    <string name="no_results_found">\"%1$s\" से मेल खाने वाला कोई स्थान नहीं मिला</string>
+    <string name="feels_like">महसूस</string>
+    <string name="hourly_forecast">प्रति घंटा पूर्वानुमान</string>
+    <string name="precipitation_chart_title">वर्षा</string>
+    <string name="sunset">सूर्यास्त</string>
+    <string name="sunrise">सूर्योदय</string>
+    <string name="now">अब</string>
+    <string name="today">आज</string>
+    <string name="tomorrow">कल</string>
+    <string name="ten_day_forecast">10-दिन का पूर्वानुमान</string>
+    <string name="wind">हवा</string>
+    <string name="humidity">नमी</string>
+    <string name="uv_index">यूवी सूचकांक</string>
+    <string name="pressure">दबाव</string>
+    <string name="visibility">दृश्यता</string>
+    <string name="sun_times">सूर्योदय और सूर्यास्त</string>
+    <string name="languages">भाषाएं</string>
+    <string name="select_language">भाषा चुनें</string>
+
+    <string name="condition_sunny">धूपदार</string>
+    <string name="condition_clear">साफ़</string>
+    <string name="condition_partly_cloudy">आंशिक बादल</string>
+    <string name="condition_cloudy">बादल छाए रहेंगे</string>
+    <string name="condition_light_rain">हल्की बारिश</string>
+    <string name="condition_rain">बारिश</string>
+    <string name="condition_thunderstorm">आंधी-तूफान</string>
+    <string name="condition_snow">बर्फबारी</string>
+    <string name="condition_fog">कोहरा</string>
+
+    <!-- AccuWeather Weather Map Resources -->
+    <string name="accuweather_map_title">AccuWeather मौसम मानचित्र</string>
+    <string name="accuweather_layer_radar">रडार और बारिश</string>
+    <string name="accuweather_layer_clouds">बादल और उपग्रह</string>
+    <string name="accuweather_layer_temp">तापमान</string>
+    <string name="accuweather_layer_wind">पवन प्रवाह</string>
+    <string name="accuweather_layer_severe">गंभीर तूफान</string>
+    <string name="accuweather_fullscreen">इंटरैक्टिव मौसम मानचित्र</string>
+    <string name="accuweather_now">लाइव मानचित्र</string>
+    <string name="accuweather_recenter">पुनः केंद्रित करें</string>
+    <string name="accuweather_legend_intensity">तीव्रता</string>
+    <string name="accuweather_branding">AccuWeather Superior Accuracy™</string>
+</resources>

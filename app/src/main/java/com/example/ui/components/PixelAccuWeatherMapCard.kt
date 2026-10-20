@@ -28,10 +28,12 @@ import androidx.compose.ui.unit.sp
 import com.example.R
 import com.example.data.accuweather.AccuWeatherMapProvider
 import com.example.data.model.AccuWeatherMapLayer
+import com.example.data.model.AppLanguage
 import com.example.data.model.CityLocation
 import com.example.data.model.CurrentWeather
 import com.example.data.model.TemperatureUnit
 import com.example.ui.theme.*
+import com.example.util.WeatherLocalization
 
 @Composable
 fun PixelAccuWeatherMapCard(
@@ -39,6 +41,7 @@ fun PixelAccuWeatherMapCard(
     location: CityLocation,
     tempUnit: TemperatureUnit,
     onOpenFullMap: () -> Unit,
+    language: AppLanguage = AppLanguage.ENGLISH,
     modifier: Modifier = Modifier
 ) {
     val context = LocalContext.current
@@ -119,7 +122,7 @@ fun PixelAccuWeatherMapCard(
 
                     Column {
                         Text(
-                            text = stringResource(R.string.accuweather_map_title),
+                            text = WeatherLocalization.getAccuWeatherMapTitle(language),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = TextWhitePrimary
@@ -153,7 +156,7 @@ fun PixelAccuWeatherMapCard(
                                     .background(AccuWeatherOrange.copy(alpha = livePulse))
                             )
                             Text(
-                                text = stringResource(R.string.accuweather_now).uppercase(),
+                                text = WeatherLocalization.getAccuWeatherLiveText(language).uppercase(),
                                 fontSize = 10.sp,
                                 fontWeight = FontWeight.Bold,
                                 color = AccuWeatherOrange

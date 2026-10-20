@@ -52,7 +52,7 @@ fun LanguageSelectionSheet(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-                        text = stringResource(R.string.select_language),
+                        text = com.example.util.WeatherLocalization.getSelectLanguageTitle(currentLanguage),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface

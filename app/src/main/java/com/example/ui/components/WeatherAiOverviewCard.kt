@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
@@ -31,6 +32,7 @@ import com.example.data.model.AppLanguage
 import com.example.ui.AiChatUiState
 import com.example.ui.AiOverviewUiState
 import com.example.ui.theme.*
+import com.example.util.WeatherLocalization
 
 @Composable
 fun WeatherAiOverviewCard(
@@ -86,13 +88,13 @@ fun WeatherAiOverviewCard(
 
                     Column {
                         Text(
-                            text = "Gemini AI Weather Overview",
+                            text = WeatherLocalization.getAiOverviewTitle(currentLanguage),
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.Bold,
                             color = TextWhitePrimary
                         )
                         Text(
-                            text = "Atmospheric intelligence powered by Gemini 3.8",
+                            text = WeatherLocalization.getAiOverviewSubtitle(currentLanguage),
                             fontSize = 11.sp,
                             color = TextWhiteTertiary
                         )
@@ -156,12 +158,16 @@ fun WeatherAiOverviewCard(
                 }
 
                 is AiOverviewUiState.Success -> {
-                    SuccessAiOverview(overview = aiOverviewState.overview)
+                    SuccessAiOverview(
+                        overview = aiOverviewState.overview,
+                        language = currentLanguage
+                    )
                 }
 
                 is AiOverviewUiState.Error -> {
                     ErrorAiOverview(
                         message = aiOverviewState.message,
+                        language = currentLanguage,
                         onRetry = onRefreshOverview
                     )
                 }
@@ -187,7 +193,7 @@ fun WeatherAiOverviewCard(
             Spacer(modifier = Modifier.height(8.dp))
 
             Text(
-                text = "Ask Gemini about today's weather",
+                text = WeatherLocalization.getAskAiTitle(currentLanguage),
                 fontSize = 13.sp,
                 fontWeight = FontWeight.SemiBold,
                 color = TextWhitePrimary
@@ -240,7 +246,7 @@ fun WeatherAiOverviewCard(
                     onValueChange = { userQuestion = it },
                     placeholder = {
                         Text(
-                            text = "Ask in ${currentLanguage.displayName}…",
+                            text = WeatherLocalization.getAskAiPlaceholder(currentLanguage),
                             fontSize = 13.sp,
                             color = TextWhiteTertiary
                         )
@@ -398,7 +404,7 @@ private fun LoadingAiOverview(currentLanguage: AppLanguage) {
                 color = SunYellow
             )
             Text(
-                text = "Gemini is analyzing atmosphere in ${currentLanguage.displayName} (${currentLanguage.nativeName})…",
+                text = WeatherLocalization.getGeneratingAiOverviewText(currentLanguage),
                 fontSize = 13.sp,
                 color = TextWhiteSecondary.copy(alpha = alpha),
                 fontWeight = FontWeight.Medium
@@ -423,7 +429,10 @@ private fun LoadingAiOverview(currentLanguage: AppLanguage) {
 }
 
 @Composable
-private fun SuccessAiOverview(overview: WeatherAiOverview) {
+private fun SuccessAiOverview(
+    overview: WeatherAiOverview,
+    language: AppLanguage
+) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(10.dp)
@@ -491,7 +500,7 @@ private fun SuccessAiOverview(overview: WeatherAiOverview) {
                             modifier = Modifier.size(14.dp)
                         )
                         Text(
-                            text = "Attire",
+                            text = WeatherLocalization.getAttireLabel(language),
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
                             color = TempCurveYellow
@@ -526,7 +535,7 @@ private fun SuccessAiOverview(overview: WeatherAiOverview) {
                             modifier = Modifier.size(14.dp)
                         )
                         Text(
-                            text = "Outdoors",
+                            text = WeatherLocalization.getOutdoorsLabel(language),
                             fontSize = 11.sp,
                             fontWeight = FontWeight.Bold,
                             color = RainCyan
@@ -548,6 +557,7 @@ private fun SuccessAiOverview(overview: WeatherAiOverview) {
 @Composable
 private fun ErrorAiOverview(
     message: String,
+    language: AppLanguage,
     onRetry: () -> Unit
 ) {
     Column(
@@ -565,7 +575,7 @@ private fun ErrorAiOverview(
                 modifier = Modifier.size(18.dp)
             )
             Text(
-                text = "AI Overview: $message",
+                text = "AI: $message",
                 fontSize = 12.sp,
                 color = MaterialTheme.colorScheme.error
             )
@@ -576,7 +586,7 @@ private fun ErrorAiOverview(
             colors = ButtonDefaults.buttonColors(containerColor = FrostedInnerBg),
             border = BorderStroke(1.dp, FrostedCardBorder)
         ) {
-            Text("Retry with Gemini", fontSize = 12.sp, color = TextWhitePrimary)
+            Text(WeatherLocalization.getRetryText(language), fontSize = 12.sp, color = TextWhitePrimary)
         }
     }
 }

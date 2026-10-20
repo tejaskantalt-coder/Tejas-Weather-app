@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Tejas Weather app</string>
+    <string name="home_label">Accueil</string>
+    <string name="search_cities_hint">Rechercher des villes…</string>
+    <string name="search_title">Rechercher Villes &amp; Lieux</string>
+    <string name="search_placeholder">Entrez une ville, région ou pays…</string>
+    <string name="search_using_current_location">Utiliser la Position Actuelle</string>
+    <string name="search_gps_description">Obtenez la météo instantanée de votre position</string>
+    <string name="favorite_places">Lieux Favoris</string>
+    <string name="popular_cities">Villes Populaires du Monde</string>
+    <string name="no_results_found">Aucun lieu trouvé pour \"%1$s\"</string>
+    <string name="feels_like">Ressenti</string>
+    <string name="hourly_forecast">Prévisions Horaires</string>
+    <string name="precipitation_chart_title">Précipitations</string>
+    <string name="sunset">Coucher</string>
+    <string name="sunrise">Lever</string>
+    <string name="now">Maintenant</string>
+    <string name="today">Aujourd\'hui</string>
+    <string name="tomorrow">Demain</string>
+    <string name="ten_day_forecast">Prévisions à 10 Jours</string>
+    <string name="wind">Vent</string>
+    <string name="humidity">Humidité</string>
+    <string name="uv_index">Indice UV</string>
+    <string name="pressure">Pression</string>
+    <string name="visibility">Visibilité</string>
+    <string name="sun_times">Lever &amp; Coucher</string>
+    <string name="languages">Langues</string>
+    <string name="select_language">Sélectionner la Langue</string>
+
+    <string name="condition_sunny">Ensoleillé</string>
+    <string name="condition_clear">Dégagé</string>
+    <string name="condition_partly_cloudy">Partiellement nuageux</string>
+    <string name="condition_cloudy">Couvert</string>
+    <string name="condition_light_rain">Pluie légère</string>
+    <string name="condition_rain">Pluie</string>
+    <string name="condition_thunderstorm">Orage</string>
+    <string name="condition_snow">Neige</string>
+    <string name="condition_fog">Brouillard</string>
+
+    <!-- AccuWeather Weather Map Resources -->
+    <string name="accuweather_map_title">Carte météo AccuWeather</string>
+    <string name="accuweather_layer_radar">Radar &amp; Pluie</string>
+    <string name="accuweather_layer_clouds">Nuages &amp; Satellite</string>
+    <string name="accuweather_layer_temp">Température</string>
+    <string name="accuweather_layer_wind">Flux de Vent</string>
+    <string name="accuweather_layer_severe">Tempêtes Sévères</string>
+    <string name="accuweather_fullscreen">Carte Météo Interactive</string>
+    <string name="accuweather_now">Carte en Direct</string>
+    <string name="accuweather_recenter">Recentrer</string>
+    <string name="accuweather_legend_intensity">Intensité</string>
+    <string name="accuweather_branding">AccuWeather Superior Accuracy™</string>
+</resources>

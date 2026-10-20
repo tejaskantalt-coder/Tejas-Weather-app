@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Tejas Weather app</string>
+    <string name="home_label">Główna</string>
+    <string name="search_cities_hint">Szukaj miast…</string>
+    <string name="search_title">Szukaj miast i miejsc</string>
+    <string name="search_placeholder">Wpisz miasto, region lub kraj…</string>
+    <string name="search_using_current_location">Użyj bieżącej lokalizacji</string>
+    <string name="search_gps_description">Sprawdź natychmiast pogodę dla swojej lokalizacji</string>
+    <string name="favorite_places">Ulubione miejsca</string>
+    <string name="popular_cities">Popularne miasta na świecie</string>
+    <string name="no_results_found">Nie znaleziono miejsc pasujących do \"%1$s\"</string>
+    <string name="feels_like">Odczuwalna</string>
+    <string name="hourly_forecast">Prognoza godzinowa</string>
+    <string name="precipitation_chart_title">Opady</string>
+    <string name="sunset">Zachód słońca</string>
+    <string name="sunrise">Wschód słońca</string>
+    <string name="now">Teraz</string>
+    <string name="today">Dzisiaj</string>
+    <string name="tomorrow">Jutro</string>
+    <string name="ten_day_forecast">Prognoza 10-dniowa</string>
+    <string name="wind">Wiatr</string>
+    <string name="humidity">Wilgotność</string>
+    <string name="uv_index">Indeks UV</string>
+    <string name="pressure">Ciśnienie</string>
+    <string name="visibility">Widoczność</string>
+    <string name="sun_times">Wschód i zachód słońca</string>
+    <string name="languages">Języki</string>
+    <string name="select_language">Wybierz język</string>
+
+    <string name="condition_sunny">Słonecznie</string>
+    <string name="condition_clear">Bezchmurnie</string>
+    <string name="condition_partly_cloudy">Częściowo słonecznie</string>
+    <string name="condition_cloudy">Pochmurno</string>
+    <string name="condition_light_rain">Lekki deszcz</string>
+    <string name="condition_rain">Deszcz</string>
+    <string name="condition_thunderstorm">Burza</string>
+    <string name="condition_snow">Śnieg</string>
+    <string name="condition_fog">Mgła</string>
+
+    <!-- AccuWeather Weather Map Resources -->
+    <string name="accuweather_map_title">Mapa pogodowa AccuWeather</string>
+    <string name="accuweather_layer_radar">Radar i opady</string>
+    <string name="accuweather_layer_clouds">Chmury i satelita</string>
+    <string name="accuweather_layer_temp">Temperatura</string>
+    <string name="accuweather_layer_wind">Strumień wiatru</string>
+    <string name="accuweather_layer_severe">Gwałtowne burze</string>
+    <string name="accuweather_fullscreen">Interaktywna mapa pogody</string>
+    <string name="accuweather_now">Mapa na żywo</string>
+    <string name="accuweather_recenter">Wyśrodkuj</string>
+    <string name="accuweather_legend_intensity">Intensywność</string>
+    <string name="accuweather_branding">AccuWeather Superior Accuracy™</string>
+</resources>

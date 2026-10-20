@@ -18,12 +18,15 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.data.model.AppLanguage
 import com.example.data.model.HourlyForecast
 import com.example.ui.theme.*
+import com.example.util.WeatherLocalization
 
 @Composable
 fun PrecipitationBarChartCard(
     hourly: List<HourlyForecast>,
+    language: AppLanguage = AppLanguage.ENGLISH,
     modifier: Modifier = Modifier
 ) {
     // Filter out sunset event for clean precipitation bar chart
@@ -46,6 +49,14 @@ fun PrecipitationBarChartCard(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
+            Text(
+                text = WeatherLocalization.getPrecipitationTitle(language),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = TextWhitePrimary,
+                modifier = Modifier.padding(bottom = 12.dp)
+            )
+
             val scrollState = rememberScrollState()
 
             Row(

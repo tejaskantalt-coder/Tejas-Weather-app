@@ -27,6 +27,7 @@ import com.example.ui.theme.*
 fun PixelBentoGrid(
     current: CurrentWeather,
     sunTimes: SunriseSunset,
+    language: com.example.data.model.AppLanguage = com.example.data.model.AppLanguage.ENGLISH,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -42,7 +43,7 @@ fun PixelBentoGrid(
         ) {
             BentoCard(
                 icon = Icons.Default.Air,
-                title = stringResource(R.string.wind),
+                title = com.example.util.WeatherLocalization.getBentoTitle("wind", language),
                 value = "${Math.round(current.windSpeed)} km/h",
                 subtitle = "Direction: ${current.windDirection}°",
                 modifier = Modifier.weight(1f)
@@ -77,7 +78,7 @@ fun PixelBentoGrid(
 
             BentoCard(
                 icon = Icons.Default.WbSunny,
-                title = stringResource(R.string.uv_index),
+                title = com.example.util.WeatherLocalization.getBentoTitle("uv", language),
                 value = String.format("%.1f", current.uvIndex),
                 subtitle = getUvCategory(current.uvIndex),
                 modifier = Modifier.weight(1f)
@@ -101,7 +102,7 @@ fun PixelBentoGrid(
         ) {
             BentoCard(
                 icon = Icons.Default.WbTwilight,
-                title = stringResource(R.string.sun_times),
+                title = com.example.util.WeatherLocalization.getBentoTitle("suntimes", language),
                 value = sunTimes.sunset,
                 subtitle = "Sunrise: ${sunTimes.sunrise}",
                 modifier = Modifier.weight(1f)
@@ -115,7 +116,7 @@ fun PixelBentoGrid(
 
             BentoCard(
                 icon = Icons.Default.WaterDrop,
-                title = stringResource(R.string.humidity),
+                title = com.example.util.WeatherLocalization.getBentoTitle("humidity", language),
                 value = "${current.humidity}%",
                 subtitle = "Dew point: ${Math.round(current.dewPoint)}°",
                 modifier = Modifier.weight(1f)
@@ -135,7 +136,7 @@ fun PixelBentoGrid(
         ) {
             BentoCard(
                 icon = Icons.Default.Compress,
-                title = stringResource(R.string.pressure),
+                title = com.example.util.WeatherLocalization.getBentoTitle("pressure", language),
                 value = "${Math.round(current.surfacePressure)} hPa",
                 subtitle = if (current.surfacePressure > 1013) "High pressure" else "Low pressure",
                 modifier = Modifier.weight(1f)
@@ -143,7 +144,7 @@ fun PixelBentoGrid(
 
             BentoCard(
                 icon = Icons.Default.Visibility,
-                title = stringResource(R.string.visibility),
+                title = com.example.util.WeatherLocalization.getBentoTitle("visibility", language),
                 value = "${String.format("%.1f", current.visibilityKm)} km",
                 subtitle = if (current.visibilityKm > 9) "Clear visibility" else "Reduced visibility",
                 modifier = Modifier.weight(1f)

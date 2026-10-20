@@ -23,7 +23,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.example.R
+import com.example.data.model.AppLanguage
 import com.example.data.model.CityLocation
+import com.example.util.WeatherLocalization
 
 @Composable
 fun CitySearchDialog(
@@ -34,6 +36,7 @@ fun CitySearchDialog(
     onCitySelected: (CityLocation) -> Unit,
     onUseCurrentLocation: () -> Unit,
     onDismiss: () -> Unit,
+    language: AppLanguage = AppLanguage.ENGLISH,
     modifier: Modifier = Modifier
 ) {
     val popularCities = remember {
@@ -71,7 +74,7 @@ fun CitySearchDialog(
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
-                        text = stringResource(R.string.search_title),
+                        text = WeatherLocalization.getSearchTitle(language),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.onSurface
@@ -89,7 +92,7 @@ fun CitySearchDialog(
                 OutlinedTextField(
                     value = searchQuery,
                     onValueChange = onQueryChanged,
-                    placeholder = { Text(stringResource(R.string.search_placeholder)) },
+                    placeholder = { Text(WeatherLocalization.getSearchPlaceholder(language)) },
                     leadingIcon = {
                         Icon(imageVector = Icons.Default.Search, contentDescription = null)
                     },
@@ -147,13 +150,13 @@ fun CitySearchDialog(
 
                         Column {
                             Text(
-                                text = stringResource(R.string.search_using_current_location),
+                                text = WeatherLocalization.getSearchUsingCurrentLocation(language),
                                 style = MaterialTheme.typography.titleMedium,
                                 fontWeight = FontWeight.SemiBold,
                                 color = MaterialTheme.colorScheme.onSurface
                             )
                             Text(
-                                text = stringResource(R.string.search_gps_description),
+                                text = WeatherLocalization.getSearchGpsDescription(language),
                                 style = MaterialTheme.typography.bodySmall,
                                 color = MaterialTheme.colorScheme.onSurfaceVariant
                             )
@@ -174,7 +177,7 @@ fun CitySearchDialog(
                     }
                 } else {
                     val displayList = if (searchQuery.isNotBlank()) searchResults else popularCities
-                    val sectionTitle = if (searchQuery.isNotBlank()) "Search Results" else stringResource(R.string.popular_cities)
+                    val sectionTitle = if (searchQuery.isNotBlank()) "Search Results" else WeatherLocalization.getPopularCities(language)
 
                     Text(
                         text = sectionTitle,

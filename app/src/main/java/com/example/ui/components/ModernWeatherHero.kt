@@ -9,6 +9,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -68,7 +69,7 @@ fun ModernWeatherHero(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = if (location.name.isNotBlank()) location.name else stringResource(R.string.home_label),
+                    text = if (location.name.isNotBlank()) location.name else com.example.util.WeatherLocalization.getHomeLabel(currentLanguage),
                     style = MaterialTheme.typography.titleLarge,
                     fontWeight = FontWeight.Bold,
                     color = TextWhitePrimary
@@ -169,9 +170,9 @@ fun ModernWeatherHero(
                     lineHeight = 80.sp
                 )
 
-                // Condition Title
+                // Condition Title (Localized to user's selected language)
                 Text(
-                    text = current.condition.title,
+                    text = com.example.util.WeatherLocalization.getConditionTitle(current.condition, currentLanguage),
                     fontSize = 24.sp,
                     fontWeight = FontWeight.SemiBold,
                     color = TextWhitePrimary,
@@ -188,17 +189,20 @@ fun ModernWeatherHero(
                     color = TextWhiteSecondary
                 )
 
-                // Feels like
+                // Feels like (Localized)
                 Text(
-                    text = "${stringResource(R.string.feels_like)} ${tempUnit.formatValue(current.feelsLike)}",
+                    text = "${com.example.util.WeatherLocalization.getFeelsLikeLabel(currentLanguage)} ${tempUnit.formatValue(current.feelsLike)}",
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Normal,
                     color = TextWhiteSecondary
                 )
 
-                // Day & Time (e.g. Tue, 3:52 pm)
+                // Day & Time (Localized)
+                val localizedDayTime = remember(current.dayAndTimeString, currentLanguage) {
+                    com.example.util.WeatherLocalization.formatLocalizedDayTime(java.util.Date(), currentLanguage)
+                }
                 Text(
-                    text = current.dayAndTimeString,
+                    text = localizedDayTime,
                     fontSize = 15.sp,
                     fontWeight = FontWeight.Normal,
                     color = TextWhiteTertiary,

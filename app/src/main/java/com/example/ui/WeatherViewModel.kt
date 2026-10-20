@@ -129,13 +129,28 @@ class WeatherViewModel(
     }
 
     /**
-     * Updates the app's current language and immediately regenerates the
-     * Gemini AI overview in the newly selected language.
+     * Updates the app's current language and immediately updates the
+     * Gemini AI overview and cards in the newly selected language.
      */
     fun setLanguage(language: AppLanguage) {
-        _uiState.update { it.copy(currentLanguage = language, isLanguageSheetOpen = false) }
+        _uiState.update {
+            it.copy(
+                currentLanguage = language,
+                isLanguageSheetOpen = false,
+                aiChatState = AiChatUiState.Idle
+            )
+        }
         val report = _uiState.value.weatherReport
         if (report != null) {
+            // Immediately show fully localized AI overview so UI is instant and never stuck
+            val instantOverview = aiService.generateFallbackOverview(
+                report = report,
+                location = _uiState.value.selectedLocation,
+                language = language,
+                tempUnit = _uiState.value.tempUnit
+            )
+            _uiState.update { it.copy(aiOverviewState = AiOverviewUiState.Success(instantOverview)) }
+            // Asynchronously generate Gemini AI overview
             generateAiOverview(language = language)
         }
     }
@@ -167,7 +182,6 @@ class WeatherViewModel(
 
         aiOverviewJob?.cancel()
         aiOverviewJob = viewModelScope.launch {
-            _uiState.update { it.copy(aiOverviewState = AiOverviewUiState.Loading) }
             try {
                 val overview = aiService.generateOverview(
                     report = report,
@@ -179,16 +193,14 @@ class WeatherViewModel(
                 Log.d(TAG, "AI Overview generated successfully in ${language.displayName}")
             } catch (e: TimeoutCancellationException) {
                 Log.e(TAG, "AI Overview generation timed out", e)
-                _uiState.update {
-                    it.copy(aiOverviewState = AiOverviewUiState.Error("Generation timed out. Tap retry."))
-                }
+                val fallback = aiService.generateFallbackOverview(report, location, language, unit)
+                _uiState.update { it.copy(aiOverviewState = AiOverviewUiState.Success(fallback)) }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                Log.e(TAG, "Failed to generate AI overview", e)
-                _uiState.update {
-                    it.copy(aiOverviewState = AiOverviewUiState.Error(e.localizedMessage ?: "Failed to generate AI overview"))
-                }
+                Log.e(TAG, "Failed to generate AI overview with Gemini, using localized fallback", e)
+                val fallback = aiService.generateFallbackOverview(report, location, language, unit)
+                _uiState.update { it.copy(aiOverviewState = AiOverviewUiState.Success(fallback)) }
             }
         }
     }

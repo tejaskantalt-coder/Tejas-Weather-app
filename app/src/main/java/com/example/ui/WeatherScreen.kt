@@ -64,13 +64,33 @@ fun WeatherScreen(
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                     contentPadding = PaddingValues(top = 8.dp, bottom = 32.dp)
                 ) {
+                    // 1. Gemini AI Weather Overview Card (multilingual, localized to currentLanguage)
+                    item(key = "ai_weather_overview", contentType = "ai_card") {
+                        WeatherAiOverviewCard(
+                            aiOverviewState = uiState.aiOverviewState,
+                            aiChatState = uiState.aiChatState,
+                            currentLanguage = uiState.currentLanguage,
+                            onRefreshOverview = { viewModel.generateAiOverview() },
+                            onAskQuestion = { viewModel.askAiQuestion(it) },
+                            onOpenLanguageSheet = { viewModel.openLanguageSheet() }
+                        )
+                    }
+
                     // 2. Hourly Temperature Curve Card with Smooth Bezier & Sunset Node
                     if (report.hourly.isNotEmpty()) {
                         item(key = "hourly_temp_curve", contentType = "temp_curve") {
-                            HourlyTemperatureCurveCard(
-                                headlineSummary = report.headlineSummary,
-                                hourly = report.hourly,
+                            val localizedHeadline = com.example.util.WeatherLocalization.getHeadlineSummary(
+                                condition = report.current.condition,
+                                tempMax = report.current.tempMax,
+                                tempMin = report.current.tempMin,
+                                language = uiState.currentLanguage,
                                 tempUnit = uiState.tempUnit
+                            )
+                            HourlyTemperatureCurveCard(
+                                headlineSummary = localizedHeadline,
+                                hourly = report.hourly,
+                                tempUnit = uiState.tempUnit,
+                                language = uiState.currentLanguage
                             )
                         }
                     }
@@ -79,7 +99,8 @@ fun WeatherScreen(
                     if (report.hourly.isNotEmpty()) {
                         item(key = "precipitation_bar_chart", contentType = "precip_chart") {
                             PrecipitationBarChartCard(
-                                hourly = report.hourly
+                                hourly = report.hourly,
+                                language = uiState.currentLanguage
                             )
                         }
                     }
@@ -90,6 +111,7 @@ fun WeatherScreen(
                             currentWeather = report.current,
                             location = uiState.selectedLocation,
                             tempUnit = uiState.tempUnit,
+                            language = uiState.currentLanguage,
                             onOpenFullMap = { viewModel.openAccuWeatherMap() }
                         )
                     }
@@ -98,7 +120,8 @@ fun WeatherScreen(
                     item(key = "atmospheric_bento_grid", contentType = "bento_grid") {
                         PixelBentoGrid(
                             current = report.current,
-                            sunTimes = report.sunTimes
+                            sunTimes = report.sunTimes,
+                            language = uiState.currentLanguage
                         )
                     }
                 }
@@ -142,7 +165,8 @@ fun WeatherScreen(
                 onQueryChanged = { viewModel.onSearchQueryChanged(it) },
                 onCitySelected = { viewModel.selectLocation(it) },
                 onUseCurrentLocation = { viewModel.loadWeatherForCurrentLocation() },
-                onDismiss = { viewModel.closeSearchDialog() }
+                onDismiss = { viewModel.closeSearchDialog() },
+                language = uiState.currentLanguage
             )
         }
 

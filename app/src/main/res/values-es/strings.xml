@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Tejas Weather app</string>
+    <string name="home_label">Inicio</string>
+    <string name="search_cities_hint">Buscar ciudades…</string>
+    <string name="search_title">Buscar Ciudades y Lugares</string>
+    <string name="search_placeholder">Introduce ciudad, estado o país…</string>
+    <string name="search_using_current_location">Usar Ubicación Actual</string>
+    <string name="search_gps_description">Obtén el clima instantáneo donde estás ahora</string>
+    <string name="favorite_places">Lugares Favoritos</string>
+    <string name="popular_cities">Ciudades Populares del Mundo</string>
+    <string name="no_results_found">No se encontraron lugares coincidentes con \"%1$s\"</string>
+    <string name="feels_like">Sensación</string>
+    <string name="hourly_forecast">Pronóstico por Horas</string>
+    <string name="precipitation_chart_title">Precipitación</string>
+    <string name="sunset">Puesta de sol</string>
+    <string name="sunrise">Amanecer</string>
+    <string name="now">Ahora</string>
+    <string name="today">Hoy</string>
+    <string name="tomorrow">Mañana</string>
+    <string name="ten_day_forecast">Pronóstico a 10 Días</string>
+    <string name="wind">Viento</string>
+    <string name="humidity">Humedad</string>
+    <string name="uv_index">Índice UV</string>
+    <string name="pressure">Presión</string>
+    <string name="visibility">Visibilidad</string>
+    <string name="sun_times">Amanecer y Puesta de sol</string>
+    <string name="languages">Idiomas</string>
+    <string name="select_language">Seleccionar Idioma</string>
+
+    <string name="condition_sunny">Soleado</string>
+    <string name="condition_clear">Despejado</string>
+    <string name="condition_partly_cloudy">Parcialmente nublado</string>
+    <string name="condition_cloudy">Nublado</string>
+    <string name="condition_light_rain">Lluvia ligera</string>
+    <string name="condition_rain">Lluvia</string>
+    <string name="condition_thunderstorm">Tormenta eléctrica</string>
+    <string name="condition_snow">Nieve</string>
+    <string name="condition_fog">Neblina</string>
+
+    <!-- AccuWeather Weather Map Resources -->
+    <string name="accuweather_map_title">Mapa meteorológico AccuWeather</string>
+    <string name="accuweather_layer_radar">Radar y Lluvia</string>
+    <string name="accuweather_layer_clouds">Nubes y Satélite</string>
+    <string name="accuweather_layer_temp">Temperatura</string>
+    <string name="accuweather_layer_wind">Flujo de Viento</string>
+    <string name="accuweather_layer_severe">Tormentas Severas</string>
+    <string name="accuweather_fullscreen">Mapa Meteorológico Interactivo</string>
+    <string name="accuweather_now">Mapa en Vivo</string>
+    <string name="accuweather_recenter">Recentrar</string>
+    <string name="accuweather_legend_intensity">Intensidad</string>
+    <string name="accuweather_branding">AccuWeather Superior Accuracy™</string>
+</resources>
